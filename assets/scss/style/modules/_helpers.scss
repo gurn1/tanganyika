@@ -1,0 +1,57 @@
+// Margins & Paddings
+@each $key, $size in $sizes {
+
+	.margin-#{$key} { 
+		margin: #{$size}; 
+	}
+	
+	.margin-top-#{$key} { 
+		margin-top: #{$size}; 
+	}
+	
+	.margin-right-#{$key} { 
+		margin-right: #{$size}; 
+	}
+	
+	.margin-bottom-#{$key} { 
+		margin-bottom: #{$size}; 
+	}
+	
+	.margin-left-#{$key} { 
+		margin-left: #{$size}; 
+	}
+	
+	.padding-#{$key} {
+		padding: #{$size};
+	}
+	
+	.padding-top-#{$key} {
+		padding-top: #{$size};
+	}
+	
+	.padding-right-#{$key} {
+		padding-right: #{$size};
+	}
+	
+	.padding-bottom-#{$key} {
+		padding-bottom: #{$size};
+	}
+	
+	.padding-left-#{$key} {
+		padding-left: #{$size};
+	}
+	
+}
+
+// alignments
+.centered {
+	text-align: center;
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}

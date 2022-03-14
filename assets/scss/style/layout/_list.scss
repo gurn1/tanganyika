@@ -1,0 +1,14 @@
+.list {
+	margin: 0;
+	padding: 0;
+	
+	.list-item {
+		background: $white;
+		padding: rem(4px);
+		list-style: none;
+		margin: rem(12px 0);
+		overflow: hidden;
+		width: 100%;
+	}
+	
+}

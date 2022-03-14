@@ -1,0 +1,148 @@
+/** === Layout === */
+
+body {
+	min-height: 100vh;
+}
+
+#page {
+	display: flex;
+	flex-direction: column;
+	min-height: inherit;
+	width: 100%;
+}
+
+.site-content {
+	display: flex;
+	flex-grow: 1;
+	margin: rem(64px auto 0);
+	position: relative;
+	overflow: hidden;
+	width: 88%;
+	max-width: $fullhd;
+	
+	@include media(touch) {
+		display: block;
+		margin: rem( 32px 15px 16px);
+		width: auto;
+	}
+	
+	&.fullwidth {
+		display: block;
+		margin: 0;
+		width: 100%;
+		max-width: 100%;
+		
+		#main {
+			margin: 0 !important; 
+		}
+	}
+		
+	#main {
+		flex-grow: 1; 
+		margin: 0 0 0 rem(20px);
+		
+		&.sidebar-right {
+			margin: 0 rem(20px) 0 0;
+		}
+
+		@include media(mobile) {
+			margin: 0;
+		}
+	
+	}
+
+	#secondary {
+		background: $white;
+		flex-basis: 280px;
+		margin-bottom: rem(18px);
+		padding: rem( 20px 16px 16px);
+		width: 280px;
+
+		@include media(touch) {
+			display: none;
+		}
+
+	}
+
+}
+
+.col2-set {
+	display: flex;
+	width: 100%;
+
+	@include media(mobile) {
+		display: block;
+	}
+	
+	.col-1, .col-2 {
+		flex-grow: 1;
+		margin: rem(0 6px);
+		width: calc(50% - 12px);
+		
+		@include media(mobile) {
+			margin: 12px 0;
+			width: 100%;
+		}
+	}
+
+}
+
+.left-side, .right-side {
+	width: 50%;
+}
+
+.left-side {
+	float: left;
+}
+
+.right-size {
+	float: right;
+}
+
+.container {
+	margin: 0 auto;
+	
+	&.small {
+		max-width: 500px;		
+	}
+	
+	&.medium {
+		max-width: 650px;
+	}
+	
+	&.large {
+		max-width: 800px;
+	}
+	
+	&.xlarge {
+		max-width: 1000px;
+	}
+	
+	&.centered {
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	@include media(touch) {
+		padding: 0 14px;
+	}
+	
+}
+
+.mobile-only {
+	
+	@include media(desktop) {
+		display: none;
+	}
+	
+}
+
+/*--------------------------------------------------------------
+## Grid
+--------------------------------------------------------------*/
+@import "grid";
+
+/*--------------------------------------------------------------
+## List
+--------------------------------------------------------------*/
+@import "list";

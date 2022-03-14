@@ -1,0 +1,117 @@
+.woocommerce-store-notice {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0;
+	width: 100%;
+	font-size: 1em;
+	padding: 1em 0;
+	text-align: center;
+	background-color: tint( $highlight, 20%);
+	color: $white;
+	z-index: 99998;
+	box-shadow: 0 1px 1em rgba(0, 0, 0, 0.2);
+	display: none;
+
+	a {
+		color: $white;
+		text-decoration: underline;
+	}
+}
+
+.woocommerce-message,
+.woocommerce-error,
+.woocommerce-info {
+	padding: 1em 2em 1em 3.5em;
+	margin: 0 0 2em;
+	position: relative;
+	background-color: $white;
+	color: $color__text-light;
+	border-top: 3px solid $highlight;
+	list-style: none outside;
+	width: auto;
+	word-wrap: break-word;
+
+	&::before {
+		font-family: 'Font Awesome 5 Free';
+		content: '\f05a';
+		display: inline-block;
+		position: absolute;
+		top: 1em;
+		left: 1.5em;
+	}
+
+	.button {
+		float: right;
+	}
+
+	li {
+		list-style: none outside !important; // Required for default theme compatibility
+		padding-left: 0 !important; // Required for default theme compatibility
+		margin-left: 0 !important; // Required for default theme compatibility
+	}
+} 
+
+.woocommerce-message {
+	border-top-color: #8fae1b;
+
+	&::before {
+		content: '\f05a';
+		color: #8fae1b;
+	}
+}
+
+.woocommerce-info {
+	border-top-color: #1e85be;
+
+	&::before {
+		color: #1e85be;
+	}
+}
+
+.woocommerce-error {
+	border-top-color: $red;
+
+	&::before {
+		content: '\f05a';
+		color: $red;
+	}
+
+	&.password-update-required {
+		background: $red;
+		color: darken($white, 6%);
+		display: block;
+		margin: rem(8px 0 0);
+
+		&:before {
+			color: $white;
+		}
+
+		.error-header {
+			display: block;
+			font-weight: 700;
+		}
+
+		a {
+			color: $white;
+			font-weight: 600;
+
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+}
+
+.woocommerce-invalid {
+	#terms {
+		outline: 2px solid red;
+		outline-offset: 2px;
+	}
+}
+
+.woocommerce-form-message {
+	margin: 0;
+	padding: 0;
+}

@@ -1,0 +1,110 @@
+.widget {
+	margin-top: rem(16px);
+	overflow: hidden;
+	
+	&:first-child {
+		margin-top: 0;
+	}
+	
+	/* Make sure select elements fit in widgets. */
+	select {
+		max-width: 100%;
+	}
+
+	a {
+		color: $color__text-main;
+
+		&:hover {
+			color: $color__link-hover;
+		}
+	}
+	
+	ul {
+		padding: 0;
+		list-style: none;
+		
+		ul {
+			margin-left: rem(10px);
+		}
+
+		li {
+			border-bottom: $color__border 1px solid;
+			color: $color__text-light;
+			font-size: $font__size-md;
+			line-height: 1;
+			
+			&:first-child {
+				border-top: $color__border 1px solid;
+			}
+			
+			> a {
+				display: block;
+				padding: rem(10px 8px); // 10px 8px
+			}
+			
+			li {
+				
+				&:last-child {
+					border-bottom: none;
+				}
+			}
+			
+		}
+		
+	}
+	
+}
+
+
+.widget_tag_cloud {
+
+	.tagcloud {
+		@include font-family( $font__heading );
+		font-weight: 700;
+	}
+}
+
+
+.widget_search {
+	position: relative;
+
+	.search-field {
+		padding: rem(2px 12px);
+
+		@media screen and ( max-width: $widescreen ) {
+			width: 100%;
+		}
+	}
+
+	.search-submit {
+		border-radius: 50%;
+		display: block;
+		font-family: "Font Awesome 5 Free";
+		font-size: 0;
+		font-weight: 700;
+		height: rem(28px);
+		padding: rem(2px);
+		position: absolute;
+		top: rem(2px); right: rem(3px); 
+		width: rem(28px);
+		
+		&:after {
+			content: '\f002';
+			font-size: $font__size-xs;
+		}
+		
+	}
+}
+
+.widget_calendar .calendar_wrap {
+	text-align: center;
+
+	table td,
+	table th {
+		border: none;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+}

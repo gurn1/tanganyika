@@ -1,0 +1,135 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	background: $color__background-input;
+	border: none;
+	border-radius: 290486px;
+	box-sizing: border-box;
+	font-size: $font__size-md;
+	padding: rem(10px 14px);
+	outline: none;
+	-webkit-appearance: none;
+	outline-offset: 0;
+
+	&:focus {
+		border-color: $color__link;
+		border-radius: 290486px;
+		outline: thin solid rgba( $color__link, 0.15 );
+	}
+}
+
+input[type="search"] {
+	&::-webkit-search-decoration {
+		display: none;
+	}
+}
+
+select {
+	cursor: pointer;
+	margin: 0;
+}
+
+textarea {
+	border-radius: rem(20px);
+	box-shadow: none;
+	box-sizing: border-box;
+	display: block;
+	height: 4em;
+	resize: vertical;
+	width: 100%;
+	max-width: 100%;
+	
+	&:focus {
+		border-radius: rem(20px); 
+	}
+}
+
+label {
+	color: $color__text-light;
+	font-size: $font__size-sm;
+	font-weight: 700;
+	margin-top: rem(6px);
+
+	&.hidden {
+		visibility: hidden;
+	}
+
+	&.inline {
+		display: inline;
+	}
+	
+	&.checkbox {
+		display: inline;
+	}
+	
+	abbr.required {
+		visibility: visible;
+	}
+	
+}
+
+// Search form
+.search-container {
+	
+	@media screen and ( max-width: $widescreen ) {
+		background: $white;
+		box-shadow: 3px 3px 11px -2px rgba(0,0,0,0.39);
+		display: none;
+		margin: 0 auto;
+		padding: rem(22px 15px);
+		position: absolute;
+		top: 122px; right: 0; left: 0;
+		width: 100%;
+		max-width: 400px;
+		z-index: 99999;
+	}
+	
+}
+
+.woocommerce-product-search {
+	position: relative;
+	
+	.search-field {
+		padding: rem(2px 12px);
+		
+		@media screen and ( max-width: $widescreen ) {
+			width: 100%;
+		}
+		
+	}
+	
+	button {
+		border-radius: 50%;
+		display: block;
+		font-family: "Font Awesome 5 Free";
+		font-size: 0;
+		font-weight: 700;
+		height: rem(28px);
+		padding: rem(2px);
+		position: absolute;
+		top: rem(2px); right: rem(3px);
+		width: rem(28px);
+		
+		&:after {
+			content: '\f002';
+			font-size: $font__size-xs;
+		}
+		
+	}
+	
+}

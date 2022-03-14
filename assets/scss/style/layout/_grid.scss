@@ -1,0 +1,117 @@
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	
+	li {
+		list-style: none;
+		margin: rem(4px); // 4px
+	}
+	
+	li, .list-item {
+		width: rem(calc(33.3% - 8px));
+		
+		@include media(mobile) {
+			width: rem(calc(50% - 8px)) !important;
+		}
+		
+	}
+	
+	&.one-col {
+		li, .list-item {
+			width: 100%;
+		}
+	}
+	
+	&.two-col {
+		li, .list-item {
+			width: rem(calc(50% - 8px));
+			
+			@include media(touch) {
+				width: rem(calc(33.3% - 8px));
+			}
+			
+		}
+	}
+	
+	&.three-col {
+		li, .list-item {
+			width: calc(33.3% - 8px);
+			
+			@include media(touch) {
+				width: rem(calc(33.3% - 8px));
+			}
+			
+		}
+	}
+	
+	&.four-col {
+		li, .list-item {
+			width: rem(calc(25% - 8px));
+			
+			@include media(touch) {
+				width: rem(calc(33.3% - 8px));
+			}
+			
+		}
+	}
+	
+	&.five-col {
+		li, .list-item {
+			width: rem(calc(20% - 8px));
+			
+			@include media(touch) {
+				width: rem(calc(33.3% - 8px));
+			}
+			
+		}
+	}
+	
+	&.six-col {
+		li, .list-item {
+			width: rem(calc(16.6% - 8px));
+			
+			@include media(touch) {
+				width: rem(calc(33.3% - 8px));
+			}
+			
+		}
+	}
+	
+	&.seven-col {
+		li, .list-item {
+			width: rem(calc(14.2% - 8px));
+			
+			@include media(touch) {
+				width: rem(calc(33.3% - 8px));
+			}
+			
+		}
+	}
+	
+	.list-item.sticky-item {
+		width: 100% !important;
+	}
+		
+}
+
+.grid {
+	
+	.entry {
+		display: flex;
+		flex-direction: column;
+		
+		.entry-container {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+		}
+		
+		.entry-footer {
+			margin-top: auto;
+		}
+		
+	}
+	
+}

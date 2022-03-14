@@ -1,0 +1,185 @@
+/* Login/register form */
+#customer_login {
+	margin-bottom: rem(48px);
+	
+	.col-1, .col-2 {
+		background: $white;
+		padding: rem(22px);
+	}
+	
+	h2 {
+		margin-top: 0;
+	}
+	
+}
+
+form.login,
+form.register {
+	
+	.lost_password {
+		margin: 0;
+		
+		a {
+			color: $color__text-light;
+			font-size: $font__size-sm;
+		}
+	
+	}
+	
+}
+
+form.register {
+	
+	.form-row {
+		margin: 0;
+		padding: 0;
+	}
+	
+	input {
+		padding: rem(6px 14px);
+	}
+	
+}
+
+/* Account navigation */
+.woocommerce-MyAccount-navigation {
+	margin-right: rem(16px);
+	
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+	
+	li {
+		border-top: $color__border 1px solid;
+		list-style: none;
+		padding: rem(10px);
+		
+		&:last-child {
+			border-bottom: $color__border 1px solid;
+		}
+		
+		&.is-active a {
+			color: $highlight;
+			
+			i {
+				opacity: 1;
+			}
+		}
+		
+	}
+	
+	a {
+		color: $color__text-main;
+		display: block;
+		padding: rem(10px 0);
+		transition: all $link_transition linear;
+		
+		&:hover {
+			color: $highlight;
+		}
+		
+		i {
+			float: right;
+			opacity: 0.5;
+			text-align: center;
+			width: 20px;
+		}
+		
+	}
+	
+}
+
+
+/* Account page */
+.woocommerce-account {
+
+	.addresses .title {
+		@include clearfix();
+
+		h3 {
+			float: left;
+		}
+
+		.edit {
+			float: right;
+		}
+	}
+
+	ol.commentlist.notes li.note {
+		p.meta {
+			font-weight: 700;
+			margin-bottom: 0;
+		}
+
+		.description p:last-child {
+			margin-bottom: 0;
+		}
+	}
+	
+	ul.digital-downloads {
+		margin-left: 0;
+		padding-left: 0;
+
+		li {
+			list-style: none;
+			margin-left: 0;
+			padding-left: 0;
+
+			&::before {
+			}
+
+			.count {
+				float: right;
+			}
+		}
+	
+	}
+	
+	.woocommerce-order-details,
+	.woocommerce-customer-details,
+	.edit-account {
+		background: $white;
+		padding: rem(16px);
+	}
+	
+}
+
+
+/* Password strength meter */
+.woocommerce-password-strength {
+	text-align: center;
+	font-weight: 600;
+	padding: 3px 0.5em;
+	font-size: 1em;
+
+	&.strong {
+		background-color: #c1e1b9;
+		border-color: #83c373;
+	}
+
+	&.short {
+		background-color: #f1adad;
+		border-color: #e35b5b;
+	}
+
+	&.bad {
+		background-color: #fbc5a9;
+		border-color: #f78b53;
+	}
+
+	&.good {
+		background-color: #ffe399;
+		border-color: #ffc733;
+	}
+}
+
+.woocommerce-password-hint {
+	margin: 0.5em 0 0;
+	display: block;
+}
+
+.woocommerce-privacy-policy-text p {
+	font-size: $font__size-sm;
+	line-height: 1;
+}

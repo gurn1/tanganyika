@@ -1,0 +1,46 @@
+/*
+Theme Name: Tanganyika
+Author: Luke Clifton
+Author uri: https://lscwebdesign.co.uk
+Version: 1.0.0
+*/
+
+/* Variables & Mixins */
+@import "utilities/variables";
+@import "utilities/mixins";
+
+/* Normalize */
+@import "style/normalize";
+
+/* Typography */
+@import "style/typography/typography";
+
+/* Elements */
+@import "style/elements/elements";
+
+/* Forms */
+@import "style/forms/forms";
+
+/* Navigation */
+@import "style/navigation/navigation";
+
+/* Accessibility */
+@import "style/modules/accessibility";
+
+/* Alignments */
+@import "style/modules/alignments";
+
+/* Clearings */
+@import "style/modules/clearings";
+
+/* Layout */
+@import "style/layout/layout";
+
+/* Content */
+@import "style/site/site";
+
+/* Widgets */
+@import "style/site/secondary/widgets";
+
+/* Media */
+@import "style/media/media";

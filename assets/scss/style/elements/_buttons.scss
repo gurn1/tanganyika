@@ -1,0 +1,104 @@
+.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	@include button-transition;
+	background: $color__background-button;
+	border: none;
+	border-radius: 290486px;
+	box-sizing: border-box;
+	color: $white;
+	@include font-family( $font__heading );
+	font-size: $font__size-sm;
+	font-weight: 500;
+	line-height: 1;
+	padding: 0.3125rem 0.875rem;
+	outline: none;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: bottom;
+
+	&:hover {
+		background: $color__background-button-hover;
+		color: $white;
+		cursor: pointer;
+	}
+
+	&:visited {
+		color: $color__background-body;
+		text-decoration: none;
+	}
+
+	&:focus {
+		background: $color__background-button-hover;
+		outline: thin dotted;
+		outline-offset: -4px;
+	}
+	
+	&.small {
+		font-size: $font__size-xs;
+		padding: 0.25rem 0.75rem;
+		padding: rem(4px 12px); 
+	}
+	
+	&.large {
+		font-size: $font__size-lg;
+		padding: rem(9px 32px);
+	}
+	
+}
+
+
+.menu-toggle {
+	display: none;
+	line-height: 1;
+	margin-left: rem(20px);
+	
+	* { 
+		font-size: $font__size-xxl; 
+	}
+	
+	@include media(touch) {
+		display: block;
+	}
+	
+}
+
+.search-toggle {
+	border-radius: 50%;
+	display: none;
+	font-size: $font__size-xs;
+	font-weight: 700;
+	height: rem(28px);
+	line-height: rem(28px);
+	padding: 0;
+	text-align: center;
+	width: rem(28px);
+	
+	* {
+		line-height: rem(28px);
+	}
+	
+	@media screen and ( max-width: $widescreen ) {
+		display: block;
+	}
+	
+}
+
+a.remove {
+	border: 0;
+	color: $highlight !important; // Required for default theme compatibility
+	display: block;
+	font-size: $font__size-xl;
+	font-weight: 700;
+	line-height: 1;
+	margin: 0;
+	text-align: center;
+	text-decoration: none;
+
+	&:hover {
+		color: $red !important; // Required for default theme compatibility
+	}
+
+}

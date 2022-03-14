@@ -1,0 +1,35 @@
+table {
+	border-collapse: collapse;
+	border: 1px solid darken( $color__border, 10% );
+	width: 100%;
+	@include font-family( $font__heading );
+
+	tr {
+		background: #eee;
+		
+		&:nth-child(odd) {
+			background: $white;
+		}
+			
+	}
+	
+	thead {
+		border-bottom: 1px solid darken( $color__border, 10% );
+	}
+	
+	tfoot {
+		border-top: 1px solid darken( $color__border, 10% );
+	}
+	
+	td,
+	th {
+		padding: 0.5rem;
+		border: 1px solid darken( $color__border, 10% );
+		word-break: break-all;
+	}
+	
+	th {
+		text-align: left;
+	}
+	
+}

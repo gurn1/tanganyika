@@ -1,0 +1,136 @@
+.gallery {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.gallery-item {
+	display: inline-block;
+	margin-right: 16px;
+	margin-bottom: 16px;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+
+	// Loops to enumerate the classes for gallery columns.
+	@for $i from 2 through 9 {
+		.gallery-columns-#{$i} & {
+			max-width: calc((100% - 16px * #{ $i - 1 }) / #{ $i });
+
+			&:nth-of-type(#{$i}n+#{$i}) {
+				margin-right: 0;
+			}
+		}
+	}
+
+	&:last-of-type {
+		padding-right: 0;
+	}
+}
+
+.gallery-caption {
+	display: block;
+	font-size: $font__size-xs;
+	@include font-family( $font__heading );
+	line-height: $font__line-height-pre;
+	margin: 0;
+}
+
+.gallery-item > div > a {
+	display: block;
+	line-height: 0;
+
+	// Accessibility
+	box-shadow: 0 0 0 0 transparent;
+
+	&:focus {
+		box-shadow: 0 0 0 2px rgba( $color__link, 1 );
+	}
+}
+
+
+// Image sliders
+.flexslider {
+	
+	&#hero_home {
+		height: 600px;
+		
+		@include media(tablet) {
+			height: 500px;
+		}
+		
+		@include media(mobile) {
+			height: 400px;
+		}
+		
+	}
+	
+	.flex-viewport {
+		height: inherit;
+	}
+	
+	.slides {
+		
+	}
+	
+	.hero-slide {
+
+		align-items: center !important;
+		background-position: center !important;
+		background-size: cover !important;
+		display: flex !important;
+		justify-content: center;
+
+		&.align-left {
+			justify-content: flex-start;
+		}
+
+		&.align-right {
+			justify-content: flex-end;
+		}
+
+		.hero-content {
+			margin: unset;
+			text-align: center;
+	
+			@at-root .hero-slide.align-left .hero-content {
+				margin-left: 10vw;
+				text-align: left;
+			}
+
+			@at-root .hero-slide.align-right .hero-content {
+				margin-right: 10vw;
+				text-align: right;
+			}
+			
+			@include media(mobile) {
+				p {
+					font-size: 0;
+				}
+			}
+			
+			h1, h2, h3, h4, h5, h6 {
+				line-height: 1;
+				text-shadow: rgba(0,0,0,0.44) 1.5px 1.5px;
+			}
+
+			p {
+				text-shadow: rgba(0,0,0,0.44) 1.5px 1.5px;
+			}
+			
+			h1 { font-size: 3rem; }
+			h2 { font-size: 2.25rem; }
+			h3 { font-size: 1.875rem; }
+			h4 { font-size: 1.625rem; }
+			h5 { font-size: 1.25rem; }
+			h6 { font-size: 1.125rem; }
+			
+			.call-to-action {
+				margin-top: 32px;		
+			}
+			
+		}
+	}
+	
+	
+}

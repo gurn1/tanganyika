@@ -1,0 +1,55 @@
+.alert {
+	background-color: $white;
+	border-top: 3px solid $highlight;
+	color: $color__text-light;
+	list-style: none outside;
+	margin: 0 auto 2em;
+	padding: 1em 2em 1em 3.5em;
+	position: relative;
+	text-align: left;
+	width: auto;
+	word-wrap: break-word;
+
+	&::before {
+		font-family: 'Font Awesome 5 Free';
+		content: '\f05a';
+		display: inline-block;
+		position: absolute;
+		top: 1em;
+		left: 1.5em;
+	}
+	
+	p {
+		margin: 0;
+	}
+
+	.button {
+		float: right;
+	}
+
+	li {
+		list-style: none outside !important; // Required for default theme compatibility
+		padding-left: 0 !important; // Required for default theme compatibility
+		margin-left: 0 !important; // Required for default theme compatibility
+	}
+	
+	&.success {
+		border-top-color: #1e85be;
+
+		&::before {
+			color: #1e85be;
+		}
+
+	}
+
+	&.error {
+		border-top-color: $red;
+
+		&::before {
+			content: '\f05a';
+			color: $red;
+		}
+
+	}
+	
+}

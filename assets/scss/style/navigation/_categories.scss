@@ -1,0 +1,33 @@
+/** === Categories Lists === */
+.categories-list {
+	padding: 0;
+	list-style: none;
+
+	ul {
+		list-style: none;
+		margin-left: rem(10px);
+		padding: 0;
+	}
+
+	li {
+		color: $color__text-light;
+		font-size: $font__size-md;
+		line-height: 1;
+
+		> a {
+			display: block;
+			padding: rem(10px 0); // 10px 8px
+		}
+	}
+
+}
+
+// Product categories
+#list_category_products {
+	display: flex;
+
+	ul {
+		list-style: none;
+		text-align: left;
+	}
+}

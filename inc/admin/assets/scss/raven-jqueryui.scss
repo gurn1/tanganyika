@@ -1,0 +1,324 @@
+/**
+ * Part of the Raven Framework
+ *
+ * Styles for jquery UI API
+ * Author: Luke Clifton
+ *
+ * @since 1.0.0
+ */
+ 
+ /**
+  * Datepicker
+  *
+  */
+ .ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.raven-datepicker-skin-wordpress {
+	
+	.ui-datepicker {
+		background: #32373c;
+		color: #eeeeee;
+		width: 20em;
+		padding: .2em .2em 0;
+		display: none;
+		
+		.ui-datepicker-header {
+			background: #23282d;
+			color: #eeeeee;
+			font-size: 14px;
+			position: relative;
+			padding: .2em 0;
+		}
+		
+		.ui-datepicker-prev,
+		.ui-datepicker-next {
+			cursor: pointer;
+			position: absolute;
+			top: 2px;
+			
+			span {
+				display: block;
+				position: absolute;
+				left: 50%;
+				margin-left: -8px;
+				top: 50%;
+				margin-top: -8px;
+			}
+			
+		}
+
+		.ui-datepicker-prev {
+			left: 2px;
+		}
+
+		.ui-datepicker-next {
+			right: 2px;
+		}
+
+		.ui-datepicker-title {
+			margin: 0 2.3em;
+			line-height: 1.8em;
+			text-align: center;
+			
+			select {
+				font-size: 1em;
+				margin: 1px 0;
+			}
+			
+			&.ui-datepicker-month, &.ui-datepicker-year {
+				width: 45%;
+			}
+			
+		}
+
+		table {
+			width: 100%;
+			font-size: .9em;
+			border-collapse: collapse;
+			margin: 0 0 .4em;
+		}
+
+		th {
+			background: #23282d;
+			color: #eeeeee;
+			padding: .7em .3em;
+			text-align: center;
+			font-weight: bold;
+			border: 0;
+		}
+
+		td {
+			border: 0;
+			padding: 6px;
+			
+			span, a {
+				color: #b4b9be;
+				display: block;
+				padding: .3em;
+				text-align: center;
+				text-decoration: none;
+			}
+			
+			a:hover {
+				background: #191e23;
+				color: #0073aa;
+			}
+			
+			.ui-state-active {
+				background: #0073aa;
+				color: #fff;
+			}
+		}
+		
+		.ui-datepicker-buttonpane {
+			background-image: none;
+			margin: .7em 0 0 0;
+			padding: 0 .2em;
+			border-left: 0;
+			border-right: 0;
+			border-bottom: 0;
+			
+			button {
+				float: right;
+				margin: .5em .2em .4em;
+				cursor: pointer;
+				padding: .2em .6em .3em .6em;
+				width: auto;
+				overflow: visible;
+				
+				&.ui-datepicker-current {
+					float: left;
+				}
+				
+			}
+			
+		}
+		
+		/* Icons */
+		.ui-icon {
+			display: block;
+			text-indent: -99999px;
+			overflow: hidden;
+			background-repeat: no-repeat;
+			left: .5em;
+			top: .3em;
+		}
+
+		.ui-datepicker-prev:before, .ui-datepicker-next:before {
+			color: #a0a5aa;
+			display: inline-block;
+			width: 32px;
+			height: 32px;
+			font-size: 34px;
+			line-height: 1;
+			font-family: dashicons;
+			text-decoration: inherit;
+			font-weight: 400;
+			font-style: normal;
+			vertical-align: top;
+			text-align: center;
+			transition: color .1s ease-in 0;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		.ui-datepicker-prev:hover:before, .ui-datepicker-next:hover:before {
+			color: #0073aa;
+		}
+
+		.ui-datepicker-prev:before {
+			content: "\f141";
+		}
+
+		.ui-datepicker-next:before {
+			content: "\f139";
+		}
+		
+	}
+		
+	/* with multiple calendars */
+	.ui-datepicker.ui-datepicker-multi {
+		width: auto;
+
+		.ui-datepicker-group {
+			float: left;
+
+			table {
+				width: 95%;
+				margin: 0 auto .4em;
+			}
+
+		}
+
+		.ui-datepicker-group-last .ui-datepicker-header,
+		.ui-datepicker-group-middle .ui-datepicker-header {
+			border-left-width: 0;
+		}
+
+		.ui-datepicker-buttonpane {
+			clear: left;
+		}
+
+		.ui-datepicker-row-break {
+			clear: both;
+			width: 100%;
+			font-size: 0;
+		}
+
+	}
+
+	.ui-datepicker-multi-2 .ui-datepicker-group {
+		width: 50%;
+	}
+	.ui-datepicker-multi-3 .ui-datepicker-group {
+		width: 33.3%;
+	}
+	.ui-datepicker-multi-4 .ui-datepicker-group {
+		width: 25%;
+	}
+	
+}
+
+/* RTL support */
+.ui-datepicker-rtl {
+	direction: rtl;
+	
+	.ui-datepicker-prev {
+		right: 2px;
+		left: auto;
+		
+		&:hover {
+			right: 1px;
+			left: auto;
+		}
+	}
+	
+	.ui-datepicker-next {
+		left: 2px;
+		right: auto;
+		
+		&:hover {
+			left: 1px;
+			right: auto;
+		}
+	}
+	
+	.ui-datepicker-buttonpane {
+		clear: right;
+		
+		button {
+			float: left;
+			
+			&.ui-datepicker-current {
+				float: right;
+			}
+			
+		}
+		
+	}
+	
+	.ui-datepicker-group {
+		float: right;
+	}
+	
+	.ui-datepicker-group-last .ui-datepicker-header,
+	.ui-datepicker-group-middle .ui-datepicker-header {
+		border-right-width: 0;
+		border-left-width: 1px;
+	}
+	
+}
+
+
+/**
+ * Timepicker
+ *
+ * @since 1.0.0
+ */
+.raven-timepicker-skin-wordpress {
+	background: #32373c;
+	color: #eeeeee;
+	width: 20em;
+	padding: .2em .2em 0;
+	
+	.raven-field-dropdown {
+		display: inline-block;
+		text-align: center;
+		width: 50%;
+		
+		label {
+			display: block;
+			color: #b4b9be;
+		}
+		
+		> select {
+			-webkit-appearance: none;
+			border:none;
+			background-image:none;
+			background-color: #23282d;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			box-shadow: none;
+			color: #eeeeee;
+			cursor: pointer;
+			font-size: 20px;
+			font-weight: 600;
+			height: 48px;
+			text-align: center;
+			text-align-last: center;
+			padding: 0 25px;
+			
+			&:hover {
+				background: #0073aa;
+				color: #fff; 
+			}
+		}
+		
+	}
+}

@@ -1,0 +1,284 @@
+/** === Main menu === */
+
+.main-navigation {
+	display: block;
+	z-index: 99999;
+	
+	@include media(desktop-viewport) {
+		display: block !important;
+	}
+	
+	@include media(touch) {
+		background: $white;
+		box-shadow: 3px 3px 11px -2px rgba(0,0,0,0.39);
+		display: none;
+		margin: 0 auto;
+		padding: 1.375rem 0.9375rem; // 22px 15px
+		position: absolute;
+		top: 122px; right: 0; left: 0;
+		width: 100%;
+	}
+
+	.main-menu {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		
+		@include media(touch) {
+			display: block;
+		}
+
+		> li {
+			color: $color__text-main;
+			display: inline;
+			padding: 0 9px;
+			position: relative;
+			
+			@include media(touch) {
+				display: block;
+				padding: 0;
+			}
+
+			> a {
+				color: $color__text-main;
+				font-weight: 400;
+				
+				@include media(touch) {
+					border-bottom: $color__border 1px solid;
+					display: block;
+					padding: $font__size-md 0;
+
+					&:first-child {
+						border-top: $color__border 1px solid;
+					}
+					
+				}
+
+				&:hover {
+					color: $color__link-hover;
+				}
+				
+			}
+
+			&.menu-item-has-children {
+				display: inline-block;
+				position: inherit;
+
+				@include media(tablet) {
+					display: block;
+					position: relative;
+				}
+
+				> a {
+				}
+
+				& > a,
+				.menu-item-has-children > a {
+
+					&:after {
+						content: "";
+						display: none;
+					}
+				}
+
+				.submenu-expand {
+					display: inline-block;
+
+					/* Priority+ Menu */
+					&.main-menu-more-toggle {
+						position: relative;
+						height: 24px;
+						line-height: $font__line-height-heading;
+						width: 24px;
+						padding: 0;
+					}
+
+					.wp-customizer-unloading &,
+					&.is-empty {
+						display: none;
+					}
+					
+				}
+			}
+
+			&:last-child > a,
+			&:last-child.menu-item-has-children .submenu-expand {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.sub-menu {
+		background-color: $color__link;
+		color: $color__background-body;
+		list-style: none;
+		padding-left: 0;
+		position: absolute;
+		opacity: 0;
+		left: -9999px;
+		z-index: 99999;
+
+		@include media(tablet) {
+			width: auto;
+			min-width: -moz-max-content;
+			min-width: -webkit-max-content;
+			min-width: max-content;
+		}
+
+		> li {
+			display: block;
+			float: none;
+			position: relative;
+
+			&.menu-item-has-children {
+
+				.submenu-expand {
+					display: inline-block;
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					color: white;
+					line-height: 1;
+
+					svg {
+						top: 0;
+					}
+				}
+
+				.submenu-expand {
+					margin-right: 0;
+				}
+
+				@include media(tablet) {
+
+					.menu-item-has-children > a {
+
+						&:after {
+							content: "\203a";
+						}
+					}
+				}
+			}
+
+			> a,
+			> .menu-item-link-return {
+				color: $color__background-body;
+				display: block;
+				line-height: $font__line-height-heading;
+				text-shadow: none;
+				white-space: nowrap;
+
+				&:hover,
+				&:focus {
+					background: $color__link-hover;
+
+					&:after {
+						background: $color__link-hover;
+					}
+				}
+			}
+
+			> .menu-item-link-return {
+				width: 100%;
+				font-size: $font__size_base;
+				font-weight: normal;
+				text-align: left;
+			}
+
+			> a:empty {
+				display: none;
+			}
+
+			&.mobile-parent-nav-menu-item {
+				display: none;
+				font-size: $font__size-sm;
+				font-weight: normal;
+
+				svg {
+					position: relative;
+					top: 0.2rem;
+				}
+			}
+		}
+	}
+
+	/*
+	 * Sub-menu styles
+	 *
+	 * :focus-within needs its own selector so other similar
+	 * selectors don’t get ignored if a browser doesn’t recognize it
+	 */
+	.main-menu .menu-item-has-children:not(.off-canvas):focus-within > .sub-menu {
+		display: block;
+		left: 0;
+		margin-top: 0;
+		opacity: 1;
+		width: auto;
+		min-width: 100%;
+
+
+		/* Non-mobile position */
+		@include media(tablet) {
+			display: block;
+			margin-top: 0;
+			opacity: 1;
+			position: absolute;
+			left: 0;
+			right: auto;
+			top: auto;
+			bottom: auto;
+			height: auto;
+			min-width: -moz-max-content;
+			min-width: -webkit-max-content;
+			min-width: max-content;
+			transform: none;
+		}
+
+		&.hidden-links {
+			left: 0;
+			width: 100%;
+			display: table;
+			position: absolute;
+
+			@include media(tablet) {
+				right: 0;
+				left: auto;
+				display: block;
+				width: max-content;
+			}
+		}
+
+		.submenu-expand {
+			display: none;
+		}
+
+		.sub-menu {
+			display: block;
+			margin-top: inherit;
+			position: relative;
+			width: 100%;
+			left: 0;
+			opacity: 1;
+
+			/* Non-mobile position */
+			@include media(tablet) {
+				float: none;
+				max-width: 100%;
+			}
+		}
+
+		/* Nested sub-menu dashes */
+		.sub-menu {
+			counter-reset: submenu;
+		}
+
+		.sub-menu > li > a::before {
+			font-family: $font__body;
+			font-weight: normal;
+			content: "\2013\00a0" counters(submenu, "\2013\00a0", none);
+			counter-increment: submenu
+		}
+		
+	}
+
+}

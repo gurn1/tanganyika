@@ -1,0 +1,26 @@
+/* Social */
+.social-icons {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	
+	li {
+		list-style: none;
+		margin: 6px;
+	}
+	
+	a {
+		font-size: 0;
+		
+		&:hover * {
+			color: $highlight;
+			transition: all $link_transition linear;
+		}
+		
+	}
+	
+	i {
+		font-size: $font__size-md;
+	}
+	
+}

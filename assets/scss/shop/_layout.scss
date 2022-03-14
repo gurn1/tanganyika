@@ -1,0 +1,171 @@
+/* Woocommerce Layout */
+.woocommerce, .woocommerce-page {
+
+	.woocommerce-message,
+	.woocommerce-error,
+	.woocommerce-info {
+		.button {
+			float: right;
+		}
+	}
+
+	
+	img {
+		height: auto;
+		max-width: 100%;
+	}
+
+	/**
+	 * Product page
+	 */
+	div.product,
+	#content div.product {
+		
+		.product-summary-container {
+			display: flex;
+			position: relative;
+
+			@include media(touch) {
+				flex-wrap: wrap;
+			}
+
+			.woocommerce-product-gallery {
+				flex-basis: 440px;
+				flex-shrink: 0;
+
+				@include media(touch) {
+					margin: 0 auto;
+				}
+
+				@include media(mobile) {
+					flex-basis: auto;
+					width: 100%;
+				}
+			}
+
+			.entry-summary {
+				flex-grow: 1;
+				margin-left: 12px; 
+
+				@include media(mobile) {
+					margin: 0 0 2rem;
+					padding: 0;
+					text-align: left;
+				}
+				
+				.product_title {
+					@include media(touch) {
+						display: none;
+					}
+				}
+				
+				.woocommerce-product-rating {
+					@include media(touch) {
+						display: none;
+					}
+				}
+
+				.add-to-cart-container {
+					padding: 16px 0;
+				}
+				
+			}
+			
+		}
+
+		div.thumbnails {
+			@include clearfix();
+
+			a {
+				float: left;
+				width: 30.75%;
+				margin-right: 3.8%;
+				margin-bottom: 1em;
+			}
+
+			a.last {
+				margin-right: 0;
+			}
+
+			a.first {
+				clear: both;
+			}
+
+			&.columns-1 {
+				a {
+					width: 100%;
+					margin-right: 0;
+					float: none;
+				}
+			}
+
+			&.columns-2 {
+				a {
+					width: 48%;
+				}
+			}
+
+			&.columns-4 {
+				a {
+					width: 22.05%;
+				}
+			}
+
+			&.columns-5 {
+				a {
+					width: 16.9%;
+				}
+			}
+		}
+
+		#reviews {
+			.comment {
+			}
+		}
+	}
+
+	.woocommerce-pagination {
+		ul.page-numbers {
+		}
+	}
+
+	.woocommerce-billing-fields,
+	.woocommerce-shipping-fields {
+		@include clearfix();
+	}
+
+	.woocommerce-terms-and-conditions {
+		margin-bottom: 1.618em;
+		padding: 1.618em;
+	}
+
+	/**
+	 * oEmbeds
+	 */
+	.woocommerce-oembed {
+		position: relative;
+	}
+}
+
+/* Account layout */
+.woocommerce-account .woocommerce {
+	display: flex;
+	
+	@include media(mobile) {
+		display: block;
+	}
+	
+	.woocommerce-MyAccount-navigation {
+		flex-basis: 300px;
+		flex-grow: 0;
+		flex-shrink: 0;
+		
+		@include media(mobile) {
+		
+		}
+	}
+
+	.woocommerce-MyAccount-content {
+		flex-grow: 1;
+	}
+}

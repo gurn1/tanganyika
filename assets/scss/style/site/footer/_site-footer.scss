@@ -1,0 +1,57 @@
+/* Site footer */
+.site-footer {
+	background: $white;
+	
+	> * {
+		padding: 0 $primary-padding; 
+	}
+	
+	.site-info {
+		align-items: center;
+		display: flex;
+		min-height: 60px;
+		
+		@include media(mobile) {
+			display: block;
+			text-align: center;
+		}
+		
+		.footer-navigation {
+			flex-grow: 1;
+		}
+		
+		.payment-icons {
+			
+			@include media(mobile) {
+				justify-content: center;
+			}
+		}
+		
+	}
+	
+	.copyright {
+		align-items: center;
+		background: $color__background-secondary;
+		display: flex;
+		font-size: $font__size-xs;
+		line-height: 1;
+		min-height: 35px;
+		
+		@include media(mobile) {
+			display: block;
+			padding-top: rem(6px);
+		}
+		
+		a {
+			color: $white;
+			padding-left: rem(3px); // a tag is ignoring white space
+			
+			&:hover {
+				color: $highlight;
+			}
+			
+		}
+		
+	}
+	
+}

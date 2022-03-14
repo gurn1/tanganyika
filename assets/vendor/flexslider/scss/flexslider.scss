@@ -1,0 +1,283 @@
+/*
+ * jQuery FlexSlider v2.7.2
+ * https://www.woocommerce.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 and later license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ *
+ */
+
+@import "../../../sass/variables/variables";
+@import "../../../sass/mixins/mixins";
+
+/** RESETS */
+.flex-container a:hover, .flex-slider a:hover {
+  	outline: none;
+}
+
+.slides,
+.slides > li,
+.flex-control-nav,
+.flex-direction-nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.flex-pauseplay span {
+  	text-transform: capitalize;
+}
+
+/** DEFAULT THEME */
+.flexslider {
+	margin: 0;
+	padding: 0;
+  	position: relative;
+  	zoom: 1;
+	
+	.slides {
+		height: inherit;
+  		zoom: 1;
+		
+		> li {
+			display: none;
+			height: inherit;
+			-webkit-backface-visibility: hidden;
+		}
+		
+		img {
+			object-fit: cover;
+			-moz-user-select: none;
+			width: 100%;
+		}
+		
+	}
+	
+	html[xmlns] & .slides {
+		display: block;
+	}
+
+	* html & .slides {
+		height: 1%;
+	}
+
+	.no-js & .slides > li:first-child {
+		display: block;
+	}
+	
+}
+
+.flex-viewport {
+	max-height: 2000px;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+
+	.loading & {
+		max-height: 300px;
+	}
+	
+}
+
+@-moz-document url-prefix() {
+	.loading .flex-viewport {
+    	max-height: none;
+  	}
+}
+
+.carousel li {
+  	margin-right: 5px;
+}
+
+.flex-direction-nav {
+  	*height: 0;
+	
+	a {
+		text-decoration: none;
+		display: block;
+		font-size: 0;
+		height: 288px;
+		width: 36px;
+		margin: -144px 0 0;
+		position: absolute;
+		top: 50%;
+		z-index: 10;
+		overflow: hidden;
+		opacity: 0;
+		cursor: pointer;
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-ms-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+		
+	}
+	
+	.flex-prev {
+		background: url("images/left-arrow.svg") no-repeat center;
+		left: -50px;
+	}
+	
+	.flex-next {
+		background: url("images/right-arrow.svg") no-repeat center;
+		right: -50px;
+	}
+
+	.flexslider:hover & .flex-prev {
+		opacity: 0.7;
+		left: 25px;
+
+		&:hover {
+			opacity: 1;
+		}
+
+	}
+
+	.flexslider:hover & .flex-next {
+		opacity: 0.7;
+		right: 25px;
+
+		&:hover {
+			opacity: 1;
+		}
+
+	}
+
+	.flex-disabled {
+		opacity: 0!important;
+		filter: alpha(opacity=0);
+		cursor: default;
+		z-index: -1;
+	}
+	
+}
+
+.flex-pauseplay a {
+	display: block;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	bottom: 5px;
+	left: 10px;
+	opacity: 0.8;
+	z-index: 10;
+	overflow: hidden;
+	cursor: pointer;
+	color: #000;
+	
+	&:before {
+		font-family: "Font Awesome 5 Free";
+		font-size: 20px;
+		display: inline-block;
+		content: '\f04c';
+	}
+	
+	&:hover {
+		opacity: 1;
+	}
+
+	&.flex-play:before {
+		content: '\f04b';
+	}
+	
+}
+
+.flex-control-nav {
+	bottom: 2.4rem;
+	height: 1rem;
+	position: absolute;
+	text-align: center;
+	width: 100%;	
+	
+	li {
+		margin: 0 0.375rem;
+		display: inline-block;
+		zoom: 1;
+		*display: inline;
+		vertical-align: bottom;
+	}
+	
+}
+
+.flex-control-paging {
+
+	li a {
+		border: $white 2px solid;
+		width: 1rem;
+		height: 1rem;
+		display: block;
+		background: none;
+		cursor: pointer;
+		text-indent: -9999px;
+		border-radius: 50%;
+		@include background-transition();
+
+		&:hover {
+			background: $highlight;
+			border: none;
+		}
+
+		&.flex-active {
+			background: $white;
+			border: none;
+			cursor: default;
+		}
+
+	}
+
+}
+
+.flex-control-thumbs {
+	margin: 5px 0 0;
+	position: static;
+	overflow: hidden;
+	
+	li {
+		width: 25%;
+		float: left;
+		margin: 0;
+	}
+	
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+		opacity: .7;
+		cursor: pointer;
+		-moz-user-select: none;
+		-webkit-transition: all 1s ease;
+		-moz-transition: all 1s ease;
+		-ms-transition: all 1s ease;
+		-o-transition: all 1s ease;
+		transition: all 1s ease;
+		
+		&:hover {
+			opacity: 1;
+		}
+		
+	}
+	
+	.flex-active {
+		opacity: 1;
+		cursor: default;
+	}
+	
+}
+
+/** RESPONSIVE */
+@media screen and (max-width: 860px) {
+  	.flex-direction-nav .flex-prev {
+    	opacity: 1;
+    	left: 10px;
+  	}
+	
+  	.flex-direction-nav .flex-next {
+    	opacity: 1;
+    	right: 10px;
+  	}
+}

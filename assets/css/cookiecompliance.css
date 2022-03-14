@@ -1,0 +1,182 @@
+/* Variables & Mixins */
+/**
+ * Structure
+ */
+/**
+ * Fonts
+ */
+/**
+ * Colours
+ */
+/**
+ * Transitions
+ */
+/* If we add the border using a regular CSS border, it won't look good on non-retina devices,
+ * since its edges can look jagged due to lack of antialiasing. In this case, we are several
+ * layers of box-shadow to add the border visually, which will render the border smoother. */
+/* Ensure all font family declarations come with non-latin fallbacks */
+/* ---- Base ---- */
+.cc-window, .cc-revoke {
+  position: fixed;
+  overflow: hidden;
+  box-sizing: border-box;
+  line-height: 1.5em;
+  flex-wrap: nowrap;
+  z-index: 9999; }
+
+.cc-window.cc-static {
+  position: static; }
+
+/* 2 basic types of window - floating / banner */
+.cc-window.cc-floating {
+  padding: 1em; }
+
+.cc-window.cc-banner {
+  padding: 1em 1.8em;
+  width: 100%; }
+
+.cc-revoke {
+  padding: .5em; }
+  .cc-revoke:hover {
+    text-decoration: underline; }
+
+.cc-header {
+  font-size: 1.125rem;
+  font-weight: 600; }
+
+/* clickable things */
+.cc-btn, .cc-link, .cc-close, .cc-revoke {
+  cursor: pointer; }
+
+.cc-btn {
+  display: block;
+  padding: .4em .8em;
+  font-size: 0.9em;
+  font-weight: bold;
+  border-width: 2px;
+  border-style: solid;
+  text-align: center;
+  white-space: nowrap; }
+
+.cc-banner .cc-btn:last-child {
+  min-width: 8.75rem; }
+
+.cc-highlight .cc-btn:first-child {
+  background-color: transparent;
+  border-color: transparent; }
+
+.cc-highlight .cc-btn:first-child:hover,
+.cc-highlight .cc-btn:first-child:focus {
+  background-color: transparent;
+  text-decoration: underline; }
+
+.cc-close {
+  display: block;
+  position: absolute;
+  top: .5em;
+  right: .5em;
+  font-size: 1.6em;
+  opacity: .9;
+  line-height: .75; }
+  .cc-close:hover, .cc-close:focus {
+    opacity: 1; }
+
+/* ---- Layout ---- */
+.cc-banner, .cc-floating {
+  background: #07202c;
+  color: #f1f1f1;
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-align: center;
+  z-index: 100000; }
+  .cc-banner .cc-message, .cc-banner .cc-compliance, .cc-floating .cc-message, .cc-floating .cc-compliance {
+    display: inline-block;
+    vertical-align: middle; }
+    .cc-banner .cc-message p, .cc-banner .cc-compliance p, .cc-floating .cc-message p, .cc-floating .cc-compliance p {
+      color: inherit;
+      font-weight: 500;
+      line-height: 1.05em;
+      margin: 0 auto; }
+      .cc-banner .cc-message p a, .cc-banner .cc-compliance p a, .cc-floating .cc-message p a, .cc-floating .cc-compliance p a {
+        color: inherit;
+        font-weight: 800;
+        text-decoration: underline; }
+  .cc-banner .cc-message, .cc-floating .cc-message {
+    text-align: left;
+    max-width: 43.75rem; }
+  .cc-banner .cc-compliance, .cc-floating .cc-compliance {
+    width: auto; }
+  .cc-banner .button, .cc-floating .button {
+    border: none;
+    color: #ffffff;
+    font-size: 0.75rem;
+    text-decoration: none; }
+
+.cc-floating {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.cc-banner {
+  position: static; }
+
+/* ---- Animation ---- */
+.cc-window {
+  opacity: 1;
+  -webkit-transition: opacity 1s ease;
+  -moz-transition: opacity 1s ease;
+  -ms-transition: opacity 1s ease;
+  -o-transition: opacity 1s ease;
+  transition: opacity 1s ease; }
+
+.cc-window.cc-invisible {
+  display: none;
+  opacity: 0 !important; }
+
+/* only animate ifhas class 'cc-animate' */
+.cc-animate.cc-revoke {
+  -webkit-transition: transform 1s ease;
+  -moz-transition: transform 1s ease;
+  -ms-transition: transform 1s ease;
+  -o-transition: transform 1s ease;
+  transition: transform 1s ease; }
+  .cc-animate.cc-revoke.cc-top {
+    transform: translateY(-2em); }
+  .cc-animate.cc-revoke.cc-bottom {
+    transform: translateY(2em); }
+  .cc-animate.cc-revoke.cc-active.cc-top {
+    transform: translateY(0); }
+  .cc-animate.cc-revoke.cc-active.cc-bottom {
+    transform: translateY(0); }
+
+.cc-revoke:hover {
+  transform: translateY(0); }
+
+.cc-grower {
+  /* Initially we don't want any height, and we want the contents to be hidden */
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 1s;
+  -moz-transition: max-height 1s;
+  -ms-transition: max-height 1s;
+  -o-transition: max-height 1s;
+  transition: max-height 1s; }
+
+/* ---- Media ---- */
+@media (max-width: 900px) {
+  .cc-window.cc-banner, .cc-window.cc-floating {
+    padding: 0.875rem 0.625rem; } }
+
+@media (max-width: 700px) {
+  /* ---- Layout ---- */
+  .cc-banner, .cc-floating {
+    font-size: 0.75rem; }
+    .cc-banner .cc-message p, .cc-banner .cc-compliance p, .cc-floating .cc-message p, .cc-floating .cc-compliance p {
+      font-size: 0.75rem; }
+    .cc-banner .cc-message, .cc-floating .cc-message {
+      padding: 0 0.45em 1em 0.45em; }
+    .cc-banner .cc-compliance, .cc-floating .cc-compliance {
+      width: 60%; }
+      .cc-banner .cc-compliance .button, .cc-floating .cc-compliance .button {
+        padding: 0.25rem 1.875rem; } }
