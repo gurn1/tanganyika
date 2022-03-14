@@ -193,12 +193,12 @@ if( ! class_exists('Raven_forms_controller') ) {
 			if( intval( $this->recaptcha_response($form_data['g-recaptcha-response']) == 1 ) ) {
 				$output = array();
 
-				//if( class_exists( 'Raven_contact_controller' ) ) {
-				//	$to 	= get_option(Raven_contact_controller::$ID);
-				//	$to		= isset($to['email_address']) ? $to['email_address'] : get_bloginfo('admin_email');
-				//} else {
+				if( class_exists( 'Raven_contact_controller' ) ) {
+					$to 	= get_option(Raven_contact_controller::$ID);
+					$to		= isset($to['email_address']) ? $to['email_address'] : get_bloginfo('admin_email');
+				} else {
 					$to		= get_bloginfo('admin_email');
-				//}
+				}
 
 				if( is_array($form_data) ) {
 					foreach( $form_data as $key => $field ) {
@@ -288,12 +288,10 @@ if( ! class_exists('Raven_forms_controller') ) {
 			$secret_key	= isset($this->values['secret_key']) ? true : false;
 	
 			if( $site_key && $secret_key ) {
-				
 				// Recaptcha
 				if( ! wp_style_is( 'raven-recaptcha', 'enqueued' ) ) {
 					wp_enqueue_script( 'raven-recaptcha', 'https://www.google.com/recaptcha/api.js', array(), true );
 				}
-				
 			}
 
 			get_template_part( 'template-parts/forms/form', 'primary', array('site_key' => $site_key, 'form_name' => self::$form_name));
