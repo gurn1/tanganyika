@@ -163,8 +163,7 @@ if( ! class_exists('Raven_forms_controller') ) {
 				
 				// Form data 
 				$form_data	= isset($_POST[self::$form_name]) ? $_POST[self::$form_name] : array();
-				var_dump($form_data);
-				var_dump($_POST);
+
 				// Redirect url
 				$url = get_permalink();
 				
