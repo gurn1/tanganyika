@@ -133,8 +133,6 @@ if( ! class_exists('Raven_forms_controller') ) {
 			parse_str( $form, $form_data);
 			
 			$recaptcha	= isset($form_data['g-recaptcha-response']) ? $form_data['g-recaptcha-response'] : '';
-			//$form_data = isset($form_data[self::$form_name]) ? $form_data[self::$form_name] : array();
-			//$form_data = $form_data + array( 'g-recaptcha-response' => $recaptcha);
 			
 			// Process form data
 			$submit = $this->process_form($nonce, $form_data);
