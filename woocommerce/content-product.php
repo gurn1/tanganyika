@@ -36,7 +36,6 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	</figure>
 	
 	<div class="entry-container">
-	
 		<header class="entry-header">
 			<span class="categories"><?php echo wc_get_product_category_list( $product->get_id(), ', ' ); ?></span>
 			<h4 class="entry-title">
@@ -46,11 +45,11 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 				woocommerce_template_loop_product_link_close();
 				?>
 			</h4>
-		</header>
 
-		<div class="entry-content">
-			<p><?php // echo mons_truncate_product_content(); ?></p>
-		</div>
+			<div class="entry-excerpt">
+				<?php raven_trauncate_product_content();?>
+			</div>
+		</header>
 			
 		<footer class="entry-footer">
 			<?php 
@@ -58,7 +57,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 			echo woocommerce_template_loop_price(); 
 			?>
 			
-			<span class="add-to-basket <?php echo ! $product->is_in_stock() ? 'out-of-stock' : ''; ?>"><?php woocommerce_template_loop_add_to_cart(); ?></span>
+			<?php woocommerce_template_loop_add_to_cart(); ?>
 		</footer>
 		
 	</div>

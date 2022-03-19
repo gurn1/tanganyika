@@ -406,6 +406,17 @@
       "sC" : 3,
       "tS" : 0
     },
+    "\/assets\/js\/global\/_layout.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 1,
+      "oAP" : "\/assets\/js\/global\/_layout-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
     "\/assets\/js\/global\/_navigation.js" : {
       "bF" : 0,
       "ft" : 64,

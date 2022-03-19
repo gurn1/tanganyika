@@ -21,12 +21,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 
-echo apply_filters( 'woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.
-	sprintf( '<a href="%s" data-quantity="%s" class="%s" %s>%s</a>',
-		esc_url( $product->add_to_cart_url() ),
-		esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),
-		esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ),
-		isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '',
-		esc_html( $product->add_to_cart_text() )
-	),
-$product, $args );
+echo sprintf( '<a href="%1$s" class="view-more button" aria-label="View %2$s">View</a>', get_the_permalink(), get_the_title() );
+
+if ( $product->is_in_stock() ) :
+	echo apply_filters( 'woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.
+		sprintf( '<span class="add-to-cart %s"><a href="%s" data-quantity="%s" class="button secondary" %s>%s</a></span>',
+			(! $product->is_in_stock()) ? 'out-of-stock' : '',
+			esc_url( $product->add_to_cart_url() ),
+			esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),
+			isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '',
+			esc_html( $product->add_to_cart_text() )
+		),
+	$product, $args );
+else : 
+	echo '<span class="no-stock">Out of Stock</span>';
+endif;

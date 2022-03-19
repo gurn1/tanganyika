@@ -20,5 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $columns = wp_get_sidebars_widgets() == true ? 'four-col' : 'five-col';
+$cookie_name = 'raven_product_layout_switcher';
+$cookie = isset( $_COOKIE[$cookie_name] ) ? $_COOKIE[$cookie_name] : 'grid';
 ?>
-<ul class="products grid <?php echo $columns; ?>">
+<ul class="products <?php echo $columns . ' ' . $cookie; ?>">

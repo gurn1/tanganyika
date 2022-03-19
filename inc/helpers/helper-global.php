@@ -563,6 +563,27 @@ if( ! function_exists('raven_theme_content_class') ) :
 	}
 endif;
 
+if ( ! function_exists( 'raven_trauncate_product_content' ) ) :
+	/**
+	 * Get a trunacated version of the shop content
+	 * Default 65 words
+	 *
+	 * @since 1.0.0
+	 */
+	function raven_trauncate_product_content($length = 65) {
+		global $product;
+		
+		if($product) {
+			if( $product->get_short_description() ) {
+				$content = strip_tags( $product->get_short_description() );
+			}else{
+				$content = strip_tags( $product->get_description() );
+			}
+			
+			echo raven_trauncate($content, $length);
+		}
+	}
+endif;
 
 if( ! function_exists('raven_trauncate') ) :
 	/**
@@ -581,6 +602,32 @@ if( ! function_exists('raven_trauncate') ) :
 	}
 endif;
 
+if( ! function_exists('raven_product_layout_switcher') ) {
+	/**
+	 * Product layour switcher
+	 *
+	 * @since 1.0.0
+	 */
+	function raven_product_layout_switcher() {
+		$cookie_name = 'raven_product_layout_switcher';
+
+		if( isset($_COOKIE[$cookie_name]) ) {
+			$grid = $_COOKIE[$cookie_name] == 'grid' ? 'selected' : '';
+			$list = $_COOKIE[$cookie_name] == 'list' ? 'selected' : '';
+		} else {
+			$grid = 'selected';
+			$list = '';
+		}
+		
+		echo sprintf('<span class="product-layout">
+				<i id="grid_selector" class="fas product-selector fa-th %1$s" data-target="grid"></i>
+				<i id="list_selector" class="fas product-selector fa-th-list %2$s" data-target="list"></i>
+			</span>',
+			$grid, $list
+		);
+	}
+	add_action('woocommerce_before_shop_loop', 'raven_product_layout_switcher', 40);
+}
 
 if( ! function_exists('raven_get_sidebar') ) :
 	/**
