@@ -55,6 +55,8 @@ do_action( 'woocommerce_before_main_content' );
 
 <?php if ( woocommerce_product_loop() ) { ?>
 
+	<?php woocommerce_output_all_notices(); ?>
+
 	<div class="loop-top-bar container">
 		<?php
 		/**
