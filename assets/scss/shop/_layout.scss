@@ -148,21 +148,19 @@
 }
 
 /* Account layout */
-.woocommerce-account .woocommerce {
+.woocommerce-account-container {
 	display: flex;
-	
+
 	@include media(mobile) {
 		display: block;
 	}
-	
+
 	.woocommerce-MyAccount-navigation {
+		background: $white;
 		flex-basis: 300px;
 		flex-grow: 0;
 		flex-shrink: 0;
-		
-		@include media(mobile) {
-		
-		}
+		padding: rem(12px 8px);
 	}
 
 	.woocommerce-MyAccount-content {
