@@ -137,16 +137,18 @@
     position: relative; }
 
 /* Account layout */
-.woocommerce-account .woocommerce {
+.woocommerce-account-container {
   display: flex; }
   @media screen and (max-width: 699px) {
-    .woocommerce-account .woocommerce {
+    .woocommerce-account-container {
       display: block; } }
-  .woocommerce-account .woocommerce .woocommerce-MyAccount-navigation {
+  .woocommerce-account-container .woocommerce-MyAccount-navigation {
+    background: #ffffff;
     flex-basis: 300px;
     flex-grow: 0;
-    flex-shrink: 0; }
-  .woocommerce-account .woocommerce .woocommerce-MyAccount-content {
+    flex-shrink: 0;
+    padding: 0.75rem 0.5rem; }
+  .woocommerce-account-container .woocommerce-MyAccount-content {
     flex-grow: 1; }
 
 /* Global */
