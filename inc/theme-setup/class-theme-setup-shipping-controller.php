@@ -20,8 +20,10 @@ if( ! class_exists('Raven_theme_setup_shipping_controller') ) {
 		 * @since 1.0.0
 		 */
 		function __construct() {
+
+			add_action( 'admin_init', array($this, 'setup'), 10);
 			// Woocommerce settings
-			add_action( 'woocommerce_activated_plugin', array( $this, 'setup') );
+			//add_action( 'woocommerce_activated_plugin', array( $this, 'setup') );
 		}
 		
 		/**
@@ -65,7 +67,6 @@ if( ! class_exists('Raven_theme_setup_shipping_controller') ) {
 		 */
 		public function current_zones() {
 			$available_zones = WC_Shipping_Zones::get_zones();
-				
 			$available_zones_names = array();
 
 			// Add each existing zone name into our array
@@ -84,9 +85,11 @@ if( ! class_exists('Raven_theme_setup_shipping_controller') ) {
 		 * @since 1.0.0
 		 */
 		public function setup() {
-			
-			if( class_exists( 'woocommerce' ) ) {
+			if( WC_Shipping_Zones::get_zones() ) {
+				return;
+			}
 
+			if( class_exists( 'woocommerce' ) ) {
 				foreach( $this->shipping_zones() as $region => $countries ) {
 					if( ! in_array($region, $this->current_zones()) ) {
 						$zone_object = new WC_Shipping_Zone();
@@ -100,14 +103,10 @@ if( ! class_exists('Raven_theme_setup_shipping_controller') ) {
 
 						if( class_exists('WC_RoyalMail') ) {
 							$zone_object->add_shipping_method('royal_mail');
-						}
-						
+						}	
 					}
-					
 				}
-				
 			}
-			
 		} 
 		
 	}

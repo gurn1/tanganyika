@@ -43,7 +43,7 @@ if( ! class_exists('Raven_taxonomies_controller') ) {
 		 * @since 1.0.0
 		 */
 		public function order_terms($object) {	
-			if( $object ) {
+			if( ! is_wp_error($object) ) {
 				foreach( $object as $term ){
 					$order = get_term_meta( $term->term_id, '_product_cat_order', true );
 					// if there is no order number set, use term slug instead.
@@ -84,8 +84,9 @@ if( ! class_exists('Raven_taxonomies_controller') ) {
 				'parent'			=> 0,
 				'include_children' 	=> false
 			) );
+
 				
-			return $this->order_terms($categories);
+			return ($this->order_terms($categories) != null) ? $this->order_terms($categories) : array();
 		}
 
 		/**
@@ -95,31 +96,34 @@ if( ! class_exists('Raven_taxonomies_controller') ) {
 		 */
 		public function display_product_categories($cols = 1) {
 			$categories = $this->sort_shop_categories();
-			$count = count($categories);
-			$columns = $count / $cols;
-			$columns = ceil($columns);
-			$num = new NumberFormatter("en", NumberFormatter::SPELLOUT);
-	
-			$ul = '<ul class="product-categories-section">';
+			
+			if( $categories ) {
+				$count = count($categories);
+				$columns = $count / $cols;
+				$columns = ceil($columns);
+				$num = new NumberFormatter("en", NumberFormatter::SPELLOUT);
+		
+				$ul = '<ul class="product-categories-section">';
 
-			echo sprintf('<div id="list_category_products" class="%s-columns">', $num->format($cols));
-			echo $ul;
+				echo sprintf('<div class="%s-columns list-category-products">', $num->format($cols));
+				echo $ul;
 
-			$i = 0;
-			foreach( $categories as $category ) {
-				if( $i % $columns == 0) {
-					echo '</ul>'.$ul;
+				$i = 0;
+				foreach( $categories as $category ) {
+					if( $i % $columns == 0 && $i > 1) {
+						echo '</ul>'.$ul;
+					}
+					/**
+					 * Get template
+					 * params: $terms
+					 *
+					 * @since 1.0.0
+					 */
+					get_template_part( 'template-parts/content/content', 'product-categories', $category );	
+					$i++;			
 				}
-				/**
-				 * Get template
-				 * params: $terms
-				 *
-				 * @since 1.0.0
-				 */
-				get_template_part( 'template-parts/content/content', 'product-categories', $category );	
-				$i++;			
+				echo '</ul></div>';
 			}
-			echo '</ul></div>';
 		}
 
 		/**
@@ -140,7 +144,7 @@ if( ! class_exists('Raven_taxonomies_controller') ) {
 			$children = $this->get_child_terms($terms);
 
 			if( $children ) {
-				echo '<ul id="term_child_categories" class="product-categories ">';
+				echo sprintf('<ul id="term_child_categories_%s" class="product-categories sub-menu">', $term_id );
 				foreach( $children as $term ) {
 					echo sprintf(
 						'<li class="child-item child-item-%1$s"><a href="%2$s" aria-title="%3$s">%3$s</a></li>',

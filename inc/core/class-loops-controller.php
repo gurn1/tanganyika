@@ -84,6 +84,10 @@ if( ! class_exists('Raven_loops_controller') ) {
 				return;
 			}
 
+			if( ! class_exists('woocommerce') ) {
+				return;
+			}
+
 			if(is_shop()) { 	
 				$tax_query = array( array( 'taxonomy' => 'product_cat', 'field' => 'slug', 'terms' => array( 'archives', 'archive' ),'operator' => 'NOT IN') );
 				$query->set('tax_query', $tax_query);

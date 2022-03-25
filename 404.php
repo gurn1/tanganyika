@@ -28,7 +28,14 @@ get_header();
 				<?php if( class_exists('woocommerce') ) : ?>
 					<div class="shop-categories">
 						<h3>Shop Categories</h3>
-						<?php raven_framework()->taxonomies()->display_category_list(true); ?>
+						<?php 
+						/**
+						 * Get categories
+						 * 
+						 * @since 1.0.0
+						 */
+						raven_framework()->taxonomies()->display_product_categories(4); 
+						?>
 					</div>
 				<?php endif; ?>
 				
