@@ -376,6 +376,12 @@ if( ! class_exists('Raven_theme_activation_controller') ) {
 			
 			// Enable coupons
 			update_option( 'woocommerce_enable_coupons', 'no' ); // unchecked
+
+			// Change woocommerce currency
+			update_option( 'woocommerce_currency', 'GBP');
+
+			// Change woocommerce country
+			update_option( 'woocommerce_default_country', 'GB');
 			
 			/**
 			 * Product
