@@ -48,7 +48,7 @@ if( ! class_exists('Raven_loops_controller') ) {
 				'post_type'			=> 'product',
 				'posts_per_page'	=> 12,
 				'orderby'			=> 'date',
-				'order'				=> 'ASC',
+				'order'				=> 'DESC',
 				'tax_query' 		=> array(
 					array(
 						'taxonomy' => 'product_cat',
