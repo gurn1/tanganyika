@@ -723,3 +723,35 @@ if( ! function_exists('raven_wp_parse_args') ) :
 		return $result;
 	}
 endif;
+
+if( ! function_exists('raven_redirect_rewrite_url')) {
+	/**
+	 * Redirect 404 to correct product path using old product id
+	 * 
+	 * @since 1.0.0
+	 */
+	function raven_redirect_rewrite_url() {
+		if( ! is_404() ) {
+			return;
+		}
+
+		global $wp_query;
+		$query_name = isset($wp_query->query_vars['name']) ? $wp_query->query_vars['name'] : '';
+        $to_array = explode('-', $query_name);
+
+		if($query_name && end($to_array) == 'html' ) {
+			global $wpdb;
+            
+            $results = $wpdb->get_results(
+                $wpdb->prepare("SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key='_rpw_old_product_id' AND meta_value=%s LIMIT 1", $to_array[0])
+            );
+            
+			if($results) {
+               wp_redirect( get_permalink($results[0]->post_id), '301' );
+            }
+
+            return;
+		}
+	}
+	add_action('template_redirect', 'raven_redirect_rewrite_url');
+}
