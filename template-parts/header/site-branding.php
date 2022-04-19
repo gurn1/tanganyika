@@ -42,6 +42,7 @@ $blog_info = get_bloginfo( 'name' );
 				'theme_location' => 'primary',
 				'menu_class'     => 'main-menu',
 				'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+				'walker'		 => new raven_walker_navigation_controller()
 			)
 		);
 		?>

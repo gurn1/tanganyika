@@ -104,7 +104,7 @@ if( ! class_exists('Raven_admin_register_posttype_product') ) {
 		 */
 		public function register_post_status() {
 
-			register_post_status( 'raven_reserved', array(
+			register_post_status( 'raven-reserved', array(
 				'label'          			=> _x( 'Reserved', RAVEN_DOMAIN ),
 				'public'         			=> true,
 				'internal'       			=> true,
@@ -114,7 +114,7 @@ if( ! class_exists('Raven_admin_register_posttype_product') ) {
 				'label_count'    			=> _n_noop( 'Reserved <span class="count">(%s)</span>', 'Reserved <span class="count">(%s)</span>' )
 			) );
 
-			register_post_status( 'raven_sold', array(
+			register_post_status( 'raven-sold', array(
 				'label'          			=> _x( 'Sold', RAVEN_DOMAIN ),
 				'public'         			=> true,
 				'internal'       			=> true,
