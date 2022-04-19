@@ -118,7 +118,8 @@ if( ! class_exists('Raven_framework') ) {
             require_once RAVEN_FRAMEWORK . 'core/class-taxonomies-controller.php';
             require_once RAVEN_FRAMEWORK . 'core/class-users-controller.php';
             // walkers
-            require_once RAVEN_FRAMEWORK . '/core/class-walker-comment-controller.php';
+            require_once RAVEN_FRAMEWORK . 'core/class-walker-comment-controller.php';
+            require_once RAVEN_FRAMEWORK . 'core/class-walker-navigation-controller.php';
             // widgets
             require_once RAVEN_FRAMEWORK . 'widgets/class-widget-all-products-categories.php';
             // helpers
