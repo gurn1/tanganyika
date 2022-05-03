@@ -57,11 +57,12 @@ if( ! class_exists('Raven_media_controller') ) {
 		public function remove_image_sizes() {
 			
 			$unwanted_image_sizes = array(
-				'medium_large',
 				'woocommerce_thumbnail',
 				'woocommerce_gallery_thumbnail',
 				'woocommerce_single',
-				'shop_catalog'
+				'shop_catalog',
+				'1536x1536',
+				'2048x2048'
 			);
 			
 			foreach( $unwanted_image_sizes as $size ) {
@@ -77,7 +78,7 @@ if( ! class_exists('Raven_media_controller') ) {
 		public function create_image_sizes() {
 			
 			// Basic thumbnail
-			add_image_size( 'raven_basic_thumb', 500, 550, true );
+			//add_image_size( 'raven_basic_thumb', 500, 550, true );
 		}
 
 		/**

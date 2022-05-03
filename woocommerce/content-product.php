@@ -30,7 +30,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	<figure class="entry-thumbnail">
 		<?php	
 		woocommerce_template_loop_product_link_open();
-		echo woocommerce_get_product_thumbnail( 'raven_basic_thumb' );
+		echo woocommerce_get_product_thumbnail( 'shop_thumbnail' );
 		woocommerce_template_loop_product_link_close();
 		?>
 	</figure>
